@@ -1,0 +1,132 @@
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+.section {
+  position: relative;
+  padding-top: var(--section-pad-y);
+  padding-bottom: var(--section-pad-y);
+}
+
+.section--tight {
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.section__head {
+  max-width: 760px;
+  margin: 0 auto var(--space-12);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.section__head--left {
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.section__title {
+  font-size: var(--fs-4xl);
+  font-weight: 700;
+  margin: 0;
+}
+
+.section__subtitle {
+  font-size: var(--fs-lg);
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: 60ch;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.flex {
+  display: flex;
+  gap: var(--space-4);
+}
+.flex--center {
+  align-items: center;
+  justify-content: center;
+}
+.flex--between {
+  align-items: center;
+  justify-content: space-between;
+}
+.flex--col {
+  flex-direction: column;
+}
+
+/* Glass utility (referenciada por componentes) */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+.glass--strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur-strong));
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong));
+}
+
+/* Decoración suave de secciones */
+.section__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.section__bg::before,
+.section__bg::after {
+  content: "";
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.section__bg::before {
+  background: rgba(124, 92, 255, 0.35);
+  top: -20vw;
+  left: -20vw;
+}
+
+.section__bg::after {
+  background: rgba(34, 211, 238, 0.25);
+  bottom: -25vw;
+  right: -20vw;
+}
+
+.section > .container {
+  position: relative;
+  z-index: 1;
+}

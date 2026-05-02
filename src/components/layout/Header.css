@@ -1,0 +1,117 @@
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  padding: var(--space-4) 0;
+  transition: background var(--transition-base), backdrop-filter var(--transition-base),
+    border-color var(--transition-base);
+  border-bottom: 1px solid transparent;
+}
+
+.site-header--scrolled {
+  background: rgba(7, 7, 12, 0.65);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom-color: var(--color-border);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.site-header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.site-header__brand-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: var(--gradient-primary);
+  box-shadow: 0 6px 20px rgba(124, 92, 255, 0.45);
+  position: relative;
+}
+
+.site-header__brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 6px;
+  background: rgba(7, 7, 12, 0.55);
+}
+
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.site-header__link {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  transition: color var(--transition-base);
+}
+
+.site-header__link:hover {
+  color: var(--color-text);
+}
+
+.site-header__nav-cta {
+  display: inline-flex;
+  margin-left: var(--space-4);
+}
+
+.site-header__toggle {
+  display: none;
+  padding: 0.5rem;
+  border-radius: 10px;
+  color: var(--color-text);
+}
+
+@media (max-width: 880px) {
+  .site-header__toggle {
+    display: inline-flex;
+  }
+  .site-header__nav {
+    position: fixed;
+    inset: 64px var(--container-pad) auto var(--container-pad);
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+    padding: var(--space-6);
+    background: rgba(10, 10, 20, 0.95);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transform: translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base), transform var(--transition-base);
+  }
+  .site-header__nav.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .site-header__nav-cta {
+    margin-left: 0;
+    width: 100%;
+  }
+  .site-header__nav-cta .cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

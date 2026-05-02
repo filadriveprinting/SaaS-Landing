@@ -1,0 +1,119 @@
+/* Tokens de diseño globales. Cambia aquí para reskinning rápido. */
+
+:root {
+  /* Color base */
+  --color-bg: #07070c;
+  --color-bg-soft: #0d0d16;
+  --color-bg-elevated: #12121e;
+  --color-surface: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+
+  /* Texto */
+  --color-text: #f4f4f8;
+  --color-text-muted: rgba(244, 244, 248, 0.68);
+  --color-text-soft: rgba(244, 244, 248, 0.48);
+
+  /* Marca / acento */
+  --color-primary: #7c5cff;
+  --color-primary-strong: #9d7bff;
+  --color-secondary: #22d3ee;
+  --color-accent: #f472b6;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+
+  /* Gradientes */
+  --gradient-primary: linear-gradient(135deg, #7c5cff 0%, #22d3ee 100%);
+  --gradient-warm: linear-gradient(135deg, #f472b6 0%, #fbbf24 100%);
+  --gradient-hero: radial-gradient(
+      80% 60% at 20% 0%,
+      rgba(124, 92, 255, 0.35) 0%,
+      transparent 60%
+    ),
+    radial-gradient(60% 50% at 100% 20%, rgba(34, 211, 238, 0.22) 0%, transparent 60%),
+    linear-gradient(180deg, #07070c 0%, #0a0a14 100%);
+  --gradient-section: linear-gradient(180deg, #07070c 0%, #0b0b14 100%);
+  --gradient-text: linear-gradient(135deg, #ffffff 0%, #c8baff 100%);
+  --gradient-text-accent: linear-gradient(135deg, #9d7bff 0%, #22d3ee 100%);
+
+  /* Glass effect */
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-bg-strong: rgba(255, 255, 255, 0.07);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: 18px;
+  --glass-blur-strong: 28px;
+
+  /* Radios */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  /* Espaciado */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 60px rgba(124, 92, 255, 0.35);
+  --shadow-glow-soft: 0 0 80px rgba(34, 211, 238, 0.18);
+
+  /* Transiciones */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --transition-fast: 160ms var(--ease-out);
+  --transition-base: 240ms var(--ease-out);
+  --transition-slow: 480ms var(--ease-out);
+
+  /* Tipografía */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --font-display: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+
+  /* Tamaños tipográficos fluidos */
+  --fs-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.85rem);
+  --fs-sm: clamp(0.875rem, 0.85rem + 0.15vw, 0.95rem);
+  --fs-base: clamp(1rem, 0.96rem + 0.2vw, 1.075rem);
+  --fs-lg: clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem);
+  --fs-xl: clamp(1.25rem, 1.15rem + 0.6vw, 1.5rem);
+  --fs-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --fs-3xl: clamp(1.875rem, 1.55rem + 1.6vw, 2.625rem);
+  --fs-4xl: clamp(2.25rem, 1.75rem + 2.6vw, 3.5rem);
+  --fs-5xl: clamp(2.75rem, 2rem + 3.8vw, 4.75rem);
+
+  /* Layout */
+  --container-max: 1240px;
+  --container-pad: clamp(1rem, 3vw, 2.5rem);
+  --section-pad-y: clamp(4rem, 8vw, 7rem);
+
+  /* Breakpoints (referencia, se usan en responsive.css) */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+
+  /* Z-index */
+  --z-base: 1;
+  --z-sticky: 50;
+  --z-header: 80;
+  --z-overlay: 90;
+  --z-modal: 100;
+  --z-toast: 120;
+}

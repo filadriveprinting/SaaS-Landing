@@ -1,0 +1,103 @@
+.bento-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  overflow: hidden;
+  isolation: isolate;
+  min-height: 220px;
+  transition: transform var(--transition-base), border-color var(--transition-base),
+    background var(--transition-base);
+  cursor: default;
+}
+
+.bento-card:hover {
+  border-color: var(--color-border-strong);
+  background: var(--glass-bg-strong);
+}
+
+.bento-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: rgba(124, 92, 255, 0.16);
+  border: 1px solid rgba(124, 92, 255, 0.32);
+  color: #cdbcff;
+}
+
+.bento-card__title {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  margin: 0;
+}
+
+.bento-card__desc {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+}
+
+.bento-card__shine {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0) 0%, rgba(34, 211, 238, 0.3) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.bento-card:hover .bento-card__shine {
+  opacity: 1;
+}
+
+.bento-card--gradient {
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.18) 0%, rgba(34, 211, 238, 0.1) 100%);
+  border-color: rgba(124, 92, 255, 0.35);
+}
+
+.bento-card--gradient .bento-card__icon {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+/* Bento sizes (mapped via grid in BentoBenefits) */
+.bento-card--lg {
+  grid-column: span 2;
+  min-height: 260px;
+}
+
+.bento-card--wide {
+  grid-column: span 2;
+}
+
+.bento-card--tall {
+  grid-row: span 2;
+  min-height: 460px;
+}
+
+@media (max-width: 760px) {
+  .bento-card--lg,
+  .bento-card--wide,
+  .bento-card--tall {
+    grid-column: span 1;
+    grid-row: auto;
+    min-height: 200px;
+  }
+}

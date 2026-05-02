@@ -1,0 +1,98 @@
+.cta-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition-base), border-color var(--transition-base),
+    box-shadow var(--transition-base), color var(--transition-base);
+  isolation: isolate;
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.cta-btn--sm {
+  padding: 0.55rem 1.1rem;
+  font-size: var(--fs-sm);
+}
+
+.cta-btn--md {
+  padding: 0.85rem 1.6rem;
+  font-size: var(--fs-base);
+}
+
+.cta-btn--lg {
+  padding: 1.05rem 2.1rem;
+  font-size: var(--fs-lg);
+}
+
+.cta-btn--full {
+  width: 100%;
+}
+
+.cta-btn--primary {
+  color: #0a0a14;
+  background: var(--gradient-primary);
+  box-shadow: 0 10px 30px rgba(124, 92, 255, 0.35);
+}
+
+.cta-btn--primary:hover {
+  box-shadow: 0 14px 40px rgba(124, 92, 255, 0.5);
+}
+
+.cta-btn--secondary {
+  color: var(--color-text);
+  background: var(--glass-bg-strong);
+  border-color: var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+.cta-btn--secondary:hover {
+  border-color: var(--color-border-strong);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cta-btn--ghost {
+  color: var(--color-text-muted);
+  background: transparent;
+}
+
+.cta-btn--ghost:hover {
+  color: var(--color-text);
+}
+
+.cta-btn__icon {
+  transition: transform var(--transition-base);
+}
+
+.cta-btn:hover .cta-btn__icon {
+  transform: translateX(3px);
+}
+
+.cta-btn__sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  pointer-events: none;
+  transition: transform 0.9s var(--ease-out);
+  mix-blend-mode: overlay;
+}
+
+.cta-btn--primary:hover .cta-btn__sheen {
+  transform: translateX(100%);
+}
