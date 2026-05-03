@@ -13,7 +13,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
-  scrollbar-color: rgba(124, 92, 255, 0.5) transparent;
+  scrollbar-color: rgba(255, 107, 53, 0.5) transparent;
 }
 
 html,
@@ -110,7 +110,7 @@ ul {
 }
 
 ::selection {
-  background: rgba(124, 92, 255, 0.4);
+  background: rgba(255, 107, 53, 0.4);
   color: #fff;
 }
 
@@ -122,11 +122,11 @@ ul {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(124, 92, 255, 0.4);
+  background: rgba(255, 107, 53, 0.4);
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(124, 92, 255, 0.65);
+  background: rgba(255, 107, 53, 0.65);
 }
 
 /* Utilidades de texto */
@@ -167,7 +167,7 @@ ul {
   height: 6px;
   border-radius: 50%;
   background: var(--gradient-primary);
-  box-shadow: 0 0 12px rgba(124, 92, 255, 0.7);
+  box-shadow: 0 0 12px rgba(255, 107, 53, 0.7);
 }
 
 /* Focus accesible */

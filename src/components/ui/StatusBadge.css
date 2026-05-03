@@ -1,0 +1,63 @@
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-pill);
+  border: 1px solid currentColor;
+  white-space: nowrap;
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  background: transparent;
+  transition: background var(--transition-base);
+}
+
+.status-badge--md {
+  padding: 0.4rem 0.85rem;
+  font-size: var(--fs-xs);
+}
+
+.status-badge__icon {
+  display: inline-flex;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Variantes — color directo controla border + text via currentColor.
+   Se añade un fondo muy sutil del mismo tono. */
+
+.status-badge--success {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.08);
+}
+
+.status-badge--warning {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.08);
+}
+
+.status-badge--danger {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.08);
+}
+
+.status-badge--info {
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.08);
+}
+
+.status-badge--primary {
+  color: #ff8a5b;
+  background: rgba(255, 107, 53, 0.1);
+}
+
+.status-badge--neutral {
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.05);
+}

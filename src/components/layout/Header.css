@@ -11,9 +11,9 @@
 }
 
 .site-header--scrolled {
-  background: rgba(7, 7, 12, 0.65);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: rgba(10, 10, 13, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom-color: var(--color-border);
 }
 
@@ -40,7 +40,7 @@
   height: 28px;
   border-radius: 9px;
   background: var(--gradient-primary);
-  box-shadow: 0 6px 20px rgba(124, 92, 255, 0.45);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.45);
   position: relative;
 }
 
@@ -49,7 +49,7 @@
   position: absolute;
   inset: 4px;
   border-radius: 6px;
-  background: rgba(7, 7, 12, 0.55);
+  background: rgba(10, 10, 13, 0.55);
 }
 
 .site-header__nav {
@@ -94,8 +94,8 @@
     background: rgba(10, 10, 20, 0.95);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     transform: translateY(-12px);
     opacity: 0;
     pointer-events: none;

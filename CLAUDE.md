@@ -1,5 +1,91 @@
 # CLAUDE.md
 
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+---
+
+## Operación y arquitectura del código
+
+> Este bloque cubre la parte **técnica** del proyecto. La parte **editorial / CRO / neuromarketing** vive a partir de "Rol del proyecto" más abajo y es la guía obligatoria para tomar decisiones de copy y diseño.
+
+### Cómo fluye el contenido
+
+`src/data/landingContent.js` exporta un único objeto `landingContent` (named + default). Cada componente de `src/components/sections/` lo importa y desestructura el campo que le toca: `const { hero } = landingContent;`. **No hay null-safety**: si eliminas un campo del data sin actualizar el componente, el render rompe (botones vacíos, undefined en JSX). Cuando elimines campos, busca todos los consumidores con grep antes.
+
+Ejemplos de campos compartidos entre varios componentes:
+- `hero.primaryCTA` → `HeroSection`, `Header`, `StickyCTA`
+- `conversion` (objeto config) → cualquier CTA que invoque `handleCTA(conversion, ...)`
+- `product.name` → tracking en cada CTA
+
+### Patrón de conversión
+
+`src/utils/conversionEvents.js` expone dos funciones:
+- `trackCTA(payload)` → log estructurado + push a `fbq`, `gtag`, `ttq`, `dataLayer` si están presentes en `window`. Solo registra.
+- `handleCTA(conversion, payload)` → ejecuta la acción según `conversion.type`: `"scroll"` (smooth scroll a un id), `"external"` (abre URL en pestaña nueva), `"callback"` (invoca `conversion.callback`). Llama internamente a `trackCTA`.
+
+Cualquier botón nuevo que dispare una intención de compra debe usar `handleCTA(conversion, { location, label, productName })`. No inventes otra capa.
+
+### Sistema de tokens CSS (theming)
+
+Todo el tema visual vive en `src/styles/variables.css` como CSS custom properties (`--color-primary`, `--gradient-primary`, `--glass-bg`, `--radius-*`, `--space-*`, `--fs-*`, `--ease-*`, `--shadow-*`, `--z-*`). Los componentes leen esas variables. **Reskinning de marca = editar `variables.css`**, casi nunca tocar componentes.
+
+Los archivos `globals.css`, `layout.css`, `animations.css` y `responsive.css` se importan desde `globals.css` (cascade único). `main.jsx` solo importa `globals.css`.
+
+### Convención de CSS colocalizado
+
+Cada componente JSX tiene su CSS hermano del mismo nombre (`BentoCard.jsx` ↔ `BentoCard.css`) e importa el CSS al inicio del JSX. Excepción: `sections.css` (compartido por todas las sections, importado una vez en `App.jsx`) y los archivos de `src/styles/` (globales).
+
+### Componentes y patrones añadidos sobre la base canónica
+
+| Pieza | Dónde | Qué hace |
+|---|---|---|
+| `HeroVideo.jsx` | `src/components/visual/` | Alternativa al 3D para el hero. Reproduce `/public/videos/hero-loop.mp4` con autoplay+loop+muted. Sirve cuando se prefiere video sobre Three.js. |
+| Prop `back` en `BentoCard` | `ui/BentoCard.jsx` | Si se pasa `{ description, ctaLabel? }`, la card se vuelve **flipping** (rotateY 180° en hover) y revela info adicional. Sin `back`, comportamiento clásico. |
+| Prop `aurora` en `CTAButton` | `ui/CTAButton.jsx` | Envuelve el botón con un halo gradient animado (purple → cyan → pink) que se intensifica en hover. Boolean opcional. |
+| Spotlight en TrustBar | `sections/TrustBar.jsx` + `ui/TrustBadge.css` | Listener `pointermove` global que cascadea CSS vars `--x/--y/--xp` al contenedor `.trust-bar__items--spotlight`. Los badges renderizan un radial-gradient `background-attachment: fixed` que crea un haz de luz que atraviesa la barra. |
+| ScrollProgress | `visual/ScrollProgress.jsx` | Barra de progreso fixed top vinculada a Framer Motion `useScroll`. |
+| StickyCTA | `layout/StickyCTA.jsx` | Aparece después de `window.innerHeight * 0.85` y se oculta cerca del footer. Usa `handleCTA` con `location: "sticky"`. |
+
+### Adaptación de componentes externos (shadcn / Tailwind / TS)
+
+El stack es **React + JavaScript + CSS plano** (sin Tailwind, sin TypeScript, sin shadcn). Cuando llegue un componente de un repo shadcn/Tailwind/TS:
+
+1. **No instales** Tailwind ni shadcn ni TS. Romperían la arquitectura canónica.
+2. **Adapta el efecto** a vanilla CSS preservando la paleta del proyecto (`#7c5cff` purple, `#22d3ee` cyan, `#f472b6` pink). Usa `var(--color-*)` y `var(--gradient-*)` en lugar de clases Tailwind.
+3. **Prefiere extender un componente existente** vía nueva prop opcional antes que crear un componente paralelo, salvo que la responsabilidad sea claramente nueva.
+4. **Convierte clases arbitrarias de Tailwind** a CSS estándar: `[perspective:1000px]` → `perspective: 1000px;` en una clase con nombre semántico.
+
+Precedentes en el repo: spotlight (TrustBar), aurora (CTAButton), flip (BentoCard).
+
+### Comandos del día a día
+
+```bash
+npm run dev      # Vite dev server con HMR (puerto 5173, salta al siguiente libre si está ocupado)
+npm run build    # Build de producción a dist/
+npm run preview  # Sirve dist/ para validar la build (puerto 4173)
+npm run lint     # ESLint flat config (eslint.config.js)
+```
+
+Para exponer el dev server a la red local: `npm run dev -- --host`.
+
+### Repo
+
+Privado en GitHub: `filadriveprinting/filadrive-conversion-landing`. Autenticación via `gh auth login` (HTTPS). `.claude/` y `Contenido/` están gitignored — el primero es estado interno de Claude Code, el segundo son source assets sin procesar (los assets servidos viven en `public/`).
+
+### Antes de eliminar un campo de `landingContent.js`
+
+Riesgo alto de romper componentes. Checklist:
+1. Grep el campo en `src/components/`.
+2. Si está en uso, edita primero el componente para no leerlo (o hazlo opcional con `field?.subField`).
+3. Después elimínalo del data.
+4. `npm run build` para validar.
+
+### Antes de eliminar una sección de `App.jsx`
+
+Conserva el archivo `.jsx` y su `.css` por si se quiere revertir; basta con quitar el `<Section />` del JSX y el `import` correspondiente. Ejemplo reciente: `GuaranteeSection` fue desactivada pero el archivo sigue en `src/components/sections/`.
+
+---
+
 ## Rol del proyecto
 
 Actúa como arquitecto senior frontend, especialista en React, Vite, JavaScript, CSS moderno, UX/UI premium, neuromarketing, copywriting de conversión, CRO, animaciones con Framer Motion, GSAP, Three.js, glassmorphism y bento grids.
@@ -117,7 +203,7 @@ No modificar esta arquitectura sin una razón técnica clara.
 
 ## Orden estratégico de la landing
 
-La landing debe seguir este orden psicológico de conversión:
+La landing debe seguir este orden psicológico de conversión. El orden actual en `App.jsx` es:
 
 1. Header.
 2. ScrollProgress.
@@ -132,11 +218,12 @@ La landing debe seguir este orden psicológico de conversión:
 11. SocialProof.
 12. OfferStack.
 13. UrgencySection.
-14. GuaranteeSection.
-15. FAQSection.
-16. FinalCTA.
-17. Footer.
-18. StickyCTA.
+14. FAQSection.
+15. FinalCTA.
+16. Footer.
+17. StickyCTA.
+
+> Nota: `GuaranteeSection` existe en `src/components/sections/` y es una sección canónica del template, pero actualmente NO está renderizada en `App.jsx`. El mensaje de garantía se mantiene de forma transversal en `hero.trustNote`, `offer.priceNote` y `offer.included`. Si quieres recuperar el bloque dedicado, basta con re-importar y renderizar `<GuaranteeSection />` entre `<UrgencySection />` y `<FAQSection />` (y restaurar el bloque `guarantee` en `landingContent.js`).
 
 Este orden está pensado para guiar al usuario desde la atención inicial hasta la conversión final.
 

@@ -16,8 +16,8 @@
   background: rgba(10, 10, 20, 0.78);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-pill);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
 }
 

@@ -1,48 +1,48 @@
 /* Tokens de diseño globales. Cambia aquí para reskinning rápido. */
 
 :root {
-  /* Color base */
-  --color-bg: #07070c;
-  --color-bg-soft: #0d0d16;
-  --color-bg-elevated: #12121e;
+  /* Color base — fondo dark cálido (matiz neutro tirando a marrón muy oscuro) */
+  --color-bg: #0a0a0d;
+  --color-bg-soft: #101013;
+  --color-bg-elevated: #16161a;
   --color-surface: rgba(255, 255, 255, 0.04);
   --color-border: rgba(255, 255, 255, 0.08);
   --color-border-strong: rgba(255, 255, 255, 0.16);
 
   /* Texto */
-  --color-text: #f4f4f8;
-  --color-text-muted: rgba(244, 244, 248, 0.68);
-  --color-text-soft: rgba(244, 244, 248, 0.48);
+  --color-text: #f5f5f0;
+  --color-text-muted: rgba(245, 245, 240, 0.68);
+  --color-text-soft: rgba(245, 245, 240, 0.48);
 
-  /* Marca / acento */
-  --color-primary: #7c5cff;
-  --color-primary-strong: #9d7bff;
-  --color-secondary: #22d3ee;
-  --color-accent: #f472b6;
+  /* Marca / acento — naranja vivo */
+  --color-primary: #ff6b35;
+  --color-primary-strong: #ff8a5b;
+  --color-secondary: #fbbf24; /* amber complementario para acentos calientes */
+  --color-accent: #ff9b6c;    /* coral suave */
   --color-success: #34d399;
   --color-warning: #fbbf24;
   --color-danger: #f87171;
 
-  /* Gradientes */
-  --gradient-primary: linear-gradient(135deg, #7c5cff 0%, #22d3ee 100%);
-  --gradient-warm: linear-gradient(135deg, #f472b6 0%, #fbbf24 100%);
+  /* Gradientes — paleta warm */
+  --gradient-primary: linear-gradient(135deg, #ff6b35 0%, #ff8a5b 100%);
+  --gradient-warm: linear-gradient(135deg, #ff6b35 0%, #fbbf24 100%);
   --gradient-hero: radial-gradient(
       80% 60% at 20% 0%,
-      rgba(124, 92, 255, 0.35) 0%,
+      rgba(255, 107, 53, 0.28) 0%,
       transparent 60%
     ),
-    radial-gradient(60% 50% at 100% 20%, rgba(34, 211, 238, 0.22) 0%, transparent 60%),
-    linear-gradient(180deg, #07070c 0%, #0a0a14 100%);
-  --gradient-section: linear-gradient(180deg, #07070c 0%, #0b0b14 100%);
-  --gradient-text: linear-gradient(135deg, #ffffff 0%, #c8baff 100%);
-  --gradient-text-accent: linear-gradient(135deg, #9d7bff 0%, #22d3ee 100%);
+    radial-gradient(60% 50% at 100% 20%, rgba(251, 191, 36, 0.16) 0%, transparent 60%),
+    linear-gradient(180deg, #0a0a0d 0%, #0e0e12 100%);
+  --gradient-section: linear-gradient(180deg, #0a0a0d 0%, #0e0e12 100%);
+  --gradient-text: linear-gradient(135deg, #ffffff 0%, #ffd9c0 100%);
+  --gradient-text-accent: linear-gradient(135deg, #ff6b35 0%, #fbbf24 100%);
 
-  /* Glass effect */
-  --glass-bg: rgba(255, 255, 255, 0.04);
-  --glass-bg-strong: rgba(255, 255, 255, 0.07);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-blur: 18px;
-  --glass-blur-strong: 28px;
+  /* Surface (look "dashboard": superficies dark sólidas en vez de glass cargado) */
+  --glass-bg: rgba(20, 20, 26, 0.78);
+  --glass-bg-strong: rgba(28, 28, 36, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --glass-blur: 8px;
+  --glass-blur-strong: 12px;
 
   /* Radios */
   --radius-xs: 6px;
@@ -71,8 +71,8 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
   --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.45);
-  --shadow-glow: 0 0 60px rgba(124, 92, 255, 0.35);
-  --shadow-glow-soft: 0 0 80px rgba(34, 211, 238, 0.18);
+  --shadow-glow: 0 0 60px rgba(255, 107, 53, 0.35);
+  --shadow-glow-soft: 0 0 80px rgba(251, 191, 36, 0.18);
 
   /* Transiciones */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);

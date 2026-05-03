@@ -16,8 +16,8 @@ function MorphingTorus() {
     <mesh ref={ref} scale={1.4}>
       <torusKnotGeometry args={[1, 0.32, 220, 32]} />
       <MeshDistortMaterial
-        color="#7c5cff"
-        emissive="#22d3ee"
+        color="#ff6b35"
+        emissive="#fbbf24"
         emissiveIntensity={0.25}
         roughness={0.15}
         metalness={0.7}
@@ -42,7 +42,7 @@ function FloatingSphere() {
           distortion={0.3}
           distortionScale={0.4}
           temporalDistortion={0.1}
-          color="#22d3ee"
+          color="#fbbf24"
         />
       </mesh>
     </Float>
@@ -55,8 +55,8 @@ function FloatingRing() {
       <mesh position={[-2.6, -1.2, -0.5]} rotation={[0.6, 0.4, 0]} scale={0.5}>
         <torusGeometry args={[1, 0.06, 32, 200]} />
         <meshStandardMaterial
-          color="#f472b6"
-          emissive="#f472b6"
+          color="#ff9b6c"
+          emissive="#ff9b6c"
           emissiveIntensity={0.6}
           metalness={0.6}
           roughness={0.2}
@@ -70,8 +70,8 @@ function Scene() {
   return (
     <>
       <ambientLight intensity={0.4} />
-      <directionalLight position={[5, 5, 5]} intensity={1.2} color="#a78bfa" />
-      <pointLight position={[-4, -3, 2]} intensity={1.4} color="#22d3ee" />
+      <directionalLight position={[5, 5, 5]} intensity={1.2} color="#ffb47e" />
+      <pointLight position={[-4, -3, 2]} intensity={1.4} color="#fbbf24" />
       <Float speed={1} rotationIntensity={0.5} floatIntensity={1.2}>
         <MorphingTorus />
       </Float>

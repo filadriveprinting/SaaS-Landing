@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { CTAButton } from "../ui/CTAButton";
-import { HeroVisual3D } from "../visual/HeroVisual3D";
+import { HeroVideo } from "../visual/HeroVideo";
 import { FloatingParticles } from "../visual/FloatingParticles";
 import { landingContent } from "../../data/landingContent";
 import { handleCTA } from "../../utils/conversionEvents";
+
+// Nota: el CTA principal del hero se ha movido al Header y al StickyCTA.
+// Aquí solo queda el CTA secundario "Ver cómo funciona".
 
 const stagger = {
   hidden: {},
@@ -16,14 +19,7 @@ const item = {
 };
 
 export function HeroSection() {
-  const { hero, conversion, product } = landingContent;
-
-  const onPrimary = () =>
-    handleCTA(conversion, {
-      location: "hero_primary",
-      label: hero.primaryCTA,
-      productName: product.name
-    });
+  const { hero, product } = landingContent;
 
   const onSecondary = () => {
     handleCTA(
@@ -52,14 +48,12 @@ export function HeroSection() {
             {hero.subheadline}
           </motion.p>
           <motion.div variants={item} className="hero__ctas">
-            <CTAButton onClick={onPrimary} size="lg" icon="ArrowRight">
-              {hero.primaryCTA}
-            </CTAButton>
             <CTAButton
               onClick={onSecondary}
               variant="secondary"
               size="lg"
               icon="PlayCircle"
+              aurora
             >
               {hero.secondaryCTA}
             </CTAButton>
@@ -76,7 +70,7 @@ export function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          <HeroVisual3D />
+          <HeroVideo />
         </motion.div>
       </div>
     </section>

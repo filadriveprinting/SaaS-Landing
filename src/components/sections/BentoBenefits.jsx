@@ -24,6 +24,7 @@ export function BentoBenefits() {
               size={b.size || "md"}
               gradient={i === 0 || i === benefits.items.length - 1}
               index={i}
+              back={b.back}
             />
           ))}
         </div>

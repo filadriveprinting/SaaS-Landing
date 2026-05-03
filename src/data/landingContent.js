@@ -5,282 +5,374 @@ export const landingContent = {
   brand: {
     name: "Filadrive",
     logoText: "FILADRIVE",
-    tagline: "Convierte tu visitante en cliente con una landing diseñada para vender."
+    tagline: "Research e-commerce con veredicto. Decide con evidencia, no a ojo."
   },
 
   product: {
-    name: "Plantilla Conversion Landing",
-    category: "Sistema canónico de venta",
-    mainPromise: "Aumenta tus conversiones con una estructura validada por neuromarketing",
+    name: "Filadrive Intelligence",
+    category: "SaaS de research e-commerce todo en uno",
+    mainPromise:
+      "Sabe en 7 minutos si tu próxima idea de producto va a funcionar — o no",
     shortDescription:
-      "Una base premium, modular y escalable para crear landings que generan confianza, deseo y acción.",
-    targetAudience: "Negocios, infoproductos, SaaS, ecommerce y servicios profesionales"
+      "Cruza Google Trends, SERPs, Amazon, ads activos y proveedores. Aplica una rúbrica abierta de 11 dimensiones. Te entrega un veredicto claro: DESCARTAR, TESTEAR, LANZAR o ESCALAR.",
+    targetAudience:
+      "Sellers de Amazon, Shopify y TikTok Shop, dropshippers, agencias de growth y founders que validan ideas en serie"
   },
 
   hero: {
-    eyebrow: "Nuevo sistema de conversión",
-    headline: "Vende más sin depender de la suerte ni del tráfico frío",
+    eyebrow: "Nuevo · SaaS de research con veredicto",
+    headline: "Deja de buscar productos. Empieza a tomar decisiones.",
     subheadline:
-      "Una landing canónica, persuasiva y editable en minutos. Diseñada para guiar a tu lead desde la duda hasta el sí, con el mismo flujo psicológico que usan las marcas que más venden online.",
-    primaryCTA: "Quiero mi landing ahora",
+      "El primer SaaS de research e-commerce en español que te dice si lanzar tu próximo producto, con evidencia. No con suposiciones.",
+    primaryCTA: "Quiero mi acceso ahora",
     secondaryCTA: "Ver cómo funciona",
-    trustNote: "Sin compromiso · Pago seguro · Resultados visibles · Garantía 14 días"
+    trustNote: "Pago Seguro · Datos 100% privados · Soporte humano"
   },
 
   trustBar: {
-    label: "Recomendado por equipos exigentes",
+    label: "Construido sobre las mejores fuentes de datos del mercado",
     badges: [
-      "Stripe Verified",
-      "GDPR Ready",
-      "Core Web Vitals A+",
-      "Mobile First",
-      "Lighthouse 95+",
-      "Accesible WCAG"
+      "Google Trends",
+      "DataForSEO",
+      "SerpApi",
+      "Apify",
+      "Amazon SERP",
+      "Meta Ad Library"
     ]
   },
 
   painPoints: {
-    headline: "¿Te suena alguno de estos problemas?",
-    subheadline: "Si reconoces más de uno, esta landing está pensada para ti.",
+    headline: "¿Te suena alguno de estos escenarios?",
+    subheadline: "Si reconoces uno solo, esta herramienta está pensada para ti.",
     items: [
-      "Tu web recibe visitas pero casi nadie compra ni te deja sus datos.",
-      "Inviertes en anuncios y la mayoría del tráfico se va sin actuar.",
-      "No sabes por qué tu mensaje no conecta con el cliente real."
+      "Tienes 12 productos en una hoja de cálculo y aún no sabes cuál lanzar primero.",
+      "Probaste EcomHunt, Niche Scraper y Helium 10 — y cada uno te dice algo diferente.",
+      "Cada idea nueva acaba siendo otra apuesta a ciegas. Sin evidencia. Solo intuición."
     ]
   },
 
   agitation: {
-    headline: "El verdadero coste de no resolver esto",
+    headline: "Cada lanzamiento sin validar es dinero quemado",
     description:
-      "Cada día sin una página optimizada es dinero, atención y oportunidades que se te escapan. No es solo un problema técnico: es un techo invisible que limita tu negocio.",
+      "Una decisión equivocada significa semanas de creatividades, ads gastados, stock parado y un equipo desmoralizado. El problema no es la falta de ideas: es que no tienes una forma fiable de saber cuál merece la pena.",
     points: [
-      "Pierdes leads que ya estaban interesados pero no encontraron claridad.",
-      "Tu coste por adquisición sube mientras tus competidores convierten más barato.",
-      "Tu marca pierde autoridad cada vez que un visitante se va sin actuar."
+      "Tu presupuesto de ads se va probando productos sin validación previa.",
+      "Tu tiempo desaparece comparando 4 herramientas que no se ponen de acuerdo.",
+      "Tu próxima idea brillante se queda en la hoja de cálculo otros tres meses."
     ]
   },
 
   solution: {
-    headline: "La forma más simple de transformar tu tráfico en clientes",
+    headline: "Una rúbrica abierta. 11 dimensiones. Un veredicto claro.",
     description:
-      "Una arquitectura de landing probada, alineada con cómo realmente decide el cerebro humano: claridad, confianza, deseo y acción. Solo cambias el contenido y obtienes una página premium lista para convertir.",
+      "Filadrive aplica una metodología pública sobre tu idea — tendencia, demanda, competencia, margen, logística, diferenciación, viralidad, SEO, retención, riesgo y oferta — cruza Google Trends, SERPs, Amazon, ads activos y proveedores, y te entrega un veredicto justificado en formato simple.",
     bullets: [
-      "Estructura persuasiva validada por neuromarketing.",
-      "Diseño premium, glassmorphism y animaciones suaves que retienen la atención.",
-      "100% editable desde un único archivo de configuración."
+      "11 Dimensiones Evaluadas, 100 puntos, Una sola Decisión",
+      "Cada Puntaje Viene con su Fuente y Su Nivel de Confianza",
+      "Veredicto en 7 minutos: DESCARTAR, TESTEAR, LANZAR o ESCALAR"
+    ],
+    verdicts: [
+      {
+        name: "ESCALAR",
+        range: "Score ≥90",
+        description: "Datos reales positivos. Invierte sin titubear, plan de escalado activo.",
+        variant: "primary"
+      },
+      {
+        name: "LANZAR",
+        range: "Score 80–89",
+        description: "Confianza alta, 0 red flags. Adelante con plan 30/60/90 ejecutable.",
+        variant: "success"
+      },
+      {
+        name: "TESTEAR",
+        range: "Score 60–79",
+        description: "Validar primero con tráfico mínimo antes de comprometer presupuesto.",
+        variant: "info"
+      },
+      {
+        name: "DESCARTAR",
+        range: "Score <50",
+        description: "Te ahorras un lanzamiento que probablemente no funcionaba.",
+        variant: "danger"
+      }
     ]
   },
 
   benefits: {
-    headline: "Todo lo que ganas con esta landing",
-    subheadline: "Cada bloque está diseñado para mover al lead un paso más cerca de la compra.",
+    headline: "Lo que cambia desde tu primer run",
+    subheadline: "No es un dashboard de métricas sueltas. Es una decisión.",
     items: [
       {
-        title: "Conversión más alta",
+        title: "Veredicto en 7 minutos",
         description:
-          "Cada sección está pensada para reducir fricción y multiplicar tu ratio de conversión.",
-        icon: "TrendingUp",
-        size: "lg"
+          "No 47 métricas: una decisión clara — DESCARTAR, TESTEAR, LANZAR o ESCALAR.",
+        icon: "Compass",
+        size: "lg",
+        back: {
+          description:
+            "Tu cerebro no decide con 47 KPIs flotando. Decide con un sí o un no. Filadrive te entrega esa decisión en menos tiempo del que tardas en abrir Helium 10 — y con más fundamento. 6 horas de research convertidas en una sola línea: lanzar o descartar."
+        }
       },
       {
-        title: "Confianza inmediata",
-        description: "Trust badges, prueba social y garantías que reducen el riesgo percibido.",
-        icon: "ShieldCheck",
-        size: "md"
+        title: "Evidencia trazable",
+        description:
+          "Cada puntaje viene con fuente: Google Trends, SERP, Amazon, Meta. Sin scores inventados.",
+        icon: "Microscope",
+        size: "md",
+        back: {
+          description:
+            "Lanzar un producto de 5.000€ basándote en un \"winning score 9/10\" es apostar sin saberlo. Cada puntaje de Filadrive viene con su fuente exacta — Trends, SERP, Amazon, ads activos. Si dudas, lo verificas en 30 segundos. Tu decisión deja de depender de la fe."
+        }
       },
       {
-        title: "Velocidad premium",
-        description: "Vite + animaciones optimizadas para no sacrificar rendimiento.",
-        icon: "Zap",
-        size: "md"
+        title: "En español de verdad",
+        description:
+          "Producto, soporte y comunidad nativos. Sin traducciones torpes de Helium 10.",
+        icon: "Languages",
+        size: "md",
+        back: {
+          description:
+            "Helium 10 traduce \"winning product\" como \"producto ganador\" y se queda tan ancho. Filadrive nace en español, piensa en español y entiende tu mercado real: IVA, dropshipping a CDMX, precios psicológicos en LATAM. La diferencia entre traducir y entender."
+        }
       },
       {
-        title: "Edita en minutos",
-        description: "Un único archivo controla todo el copy, precios y CTAs.",
-        icon: "Settings2",
-        size: "md"
+        title: "Rúbrica abierta de 11 dimensiones",
+        description:
+          "Tendencia, demanda, competencia, margen, logística, riesgo. Auditable y repetible.",
+        icon: "Layers",
+        size: "md",
+        back: {
+          description:
+            "Cualquiera puede inventar un score y llamarlo \"AI proprietary\". Filadrive te enseña la rúbrica completa, los pesos de cada dimensión y cómo se calcula. ¿No estás de acuerdo con un puntaje? Lo discutes con argumentos. La transparencia que evitan las cajas negras."
+        }
       },
       {
-        title: "Mobile first real",
-        description: "Cada microinteracción funciona perfecta en móvil, donde se decide la venta.",
-        icon: "Smartphone",
-        size: "md"
+        title: "Plan 30 / 60 / 90",
+        description:
+          "Cada veredicto positivo viene con un plan ejecutable descargable en PDF.",
+        icon: "CalendarRange",
+        size: "md",
+        back: {
+          description:
+            "Saber que algo va a funcionar y no saber qué hacer mañana es la trampa más cara del e-commerce. Cada veredicto positivo trae tu primer día, semana y mes ya planificados: creatividades, presupuesto y KPI a vigilar. Ejecutas — no improvisas."
+        }
       },
       {
-        title: "Listo para escalar",
-        description: "Conecta CRM, email, WhatsApp o checkout cuando lo necesites.",
-        icon: "Rocket",
-        size: "lg"
+        title: "Datos 100% privados",
+        description: "Tus runs son tuyos. No vendemos datos. La metodología es la única abierta.",
+        icon: "Lock",
+        size: "lg",
+        back: {
+          description:
+            "Tu próxima idea de 30.000€/mes no debería viajar a un servidor que entrena modelos para tu competencia. Filadrive guarda tus runs en tu workspace privado, no usa tus búsquedas para entrenar nada y cumple GDPR de origen. Tu nicho, tu margen, tu propiedad."
+        }
       }
     ]
   },
 
   productExperience: {
-    eyebrow: "Vive el producto",
-    headline: "Una experiencia visual que se queda en la memoria",
+    eyebrow: "Vive el veredicto",
+    headline: "Una pantalla que sí entiendes",
     description:
-      "El visitante no solo lee tu propuesta: la siente. Movimiento sutil, profundidad y luz que comunican calidad antes incluso del primer scroll.",
+      "Sin 47 KPIs flotantes. Un titular, un puntaje, un veredicto y los 3 motivos clave que lo explican. La complejidad del análisis está debajo — disponible cuando la necesitas.",
     highlights: [
-      "Escena 3D ligera y respetuosa con el rendimiento",
-      "Animaciones que guían el ojo hacia el siguiente paso",
-      "Diseño premium adaptable a cualquier identidad de marca"
-    ]
+      "Veredicto destacado: DESCARTAR, TESTEAR, LANZAR o ESCALAR",
+      "Scorecard de 11 dimensiones con fuente y confianza",
+      "Plan 30/60/90 descargable en PDF y dashboard"
+    ],
+    demo: {
+      title: "Últimos veredictos",
+      subtitle: "Vista de muestra del workspace",
+      stats: [
+        { label: "Runs ejecutados", value: "1.247", delta: "+12%", deltaTone: "success" },
+        { label: "Veredictos LANZAR", value: "184", delta: "+8%", deltaTone: "success" },
+        { label: "Tasa ESCALAR", value: "8,2%", delta: "+1,4pp", deltaTone: "primary" }
+      ],
+      runs: [
+        {
+          id: "OP-241201-014",
+          idea: "Botellas thermo eco infusoras",
+          score: 91,
+          verdict: "ESCALAR",
+          variant: "primary"
+        },
+        {
+          id: "OP-241130-027",
+          idea: "Bolsas térmicas para meal prep",
+          score: 84,
+          verdict: "LANZAR",
+          variant: "success"
+        },
+        {
+          id: "OP-241129-031",
+          idea: "Cables organizadores premium",
+          score: 72,
+          verdict: "TESTEAR",
+          variant: "info"
+        },
+        {
+          id: "OP-241128-018",
+          idea: "Stand tablet ergonómico cocina",
+          score: 67,
+          verdict: "TESTEAR",
+          variant: "info"
+        },
+        {
+          id: "OP-241127-009",
+          idea: "Lámparas LED TikTok aesthetic",
+          score: 38,
+          verdict: "DESCARTAR",
+          variant: "danger"
+        }
+      ]
+    }
   },
 
   howItWorks: {
     headline: "Cómo funciona, en 3 pasos",
-    subheadline: "Sin curvas de aprendizaje. Sin perder tiempo.",
+    subheadline: "Sin curva de aprendizaje. Sin spreadsheets. Sin gurús.",
     steps: [
       {
         step: "01",
-        title: "Edita tu contenido",
-        description:
-          "Abre landingContent.js, sustituye textos, precios e identidad. Sin tocar código de componentes."
+        title: "Describe tu idea",
+        description: "Un campo, dos minutos. Tu nicho, tu producto, tu hipótesis."
       },
       {
         step: "02",
-        title: "Ajusta tu marca",
+        title: "Filadrive ejecuta 13 fases de research",
         description:
-          "Cambia colores, gradientes y tono visual desde un único archivo de variables CSS."
+          "Tendencias, demanda, competidores, keywords, márgenes, oferta y plan. Todo cruzado con fuentes públicas."
       },
       {
         step: "03",
-        title: "Lanza y convierte",
+        title: "Recibes tu veredicto",
         description:
-          "Despliega en Vercel, Netlify o tu hosting. Conecta tu CRM o checkout y empieza a recibir leads."
+          "Veredicto + scorecard + plan 30/60/90 en PDF y dashboard. Decides con evidencia."
       }
     ]
   },
 
   socialProof: {
-    headline: "Personas como tú ya están convirtiendo más",
-    subheadline: "Resultados reales de quienes aplicaron esta arquitectura.",
+    headline: "Quienes ya lo usan dejaron de adivinar",
+    subheadline: "Reviews iniciales de la Founder's edition.",
     testimonials: [
       {
-        name: "Lucía Martín",
-        role: "Fundadora · Estudio creativo",
-        text:
-          "Pasé del 1,2% al 4,7% de conversión cambiando solo la estructura. Es la primera vez que una landing me da resultados predecibles."
+        name: "Carla R.",
+        role: "E-commerce founder · Barcelona",
+        text: "El primer veredicto que entendí. DESCARTAR — y me ahorré 1.200€ en ads que ya tenía planeados."
       },
       {
-        name: "Andrés Vega",
-        role: "CMO · SaaS B2B",
-        text:
-          "Adaptarla a tres productos distintos me llevó una tarde. Diseño premium, copy claro y métricas mejoradas en la primera semana."
+        name: "David S.",
+        role: "Amazon seller · Madrid",
+        text: "Llevaba 6 meses con Helium 10 y nunca había pillado el sentido. Filadrive me lo explicó en una pantalla."
       },
       {
-        name: "Carla Ruiz",
-        role: "Coach · Infoproducto",
-        text:
-          "Por fin una landing que parece de marca grande sin pagar a una agencia. Mis ventas en frío subieron un 38%."
+        name: "Lucía M.",
+        role: "Dropshipping · CDMX",
+        text: "Lo bueno: en español. Lo mejor: no me dijo que mi idea era genial cuando no lo era."
       }
     ],
     stats: [
-      { value: 98, suffix: "%", label: "Satisfacción cliente" },
-      { value: 1200, prefix: "+", label: "Landings desplegadas" },
-      { value: 3.4, suffix: "x", label: "Conversión media" },
-      { value: 24, suffix: "h", label: "Tiempo de adaptación" }
+      { value: 11, label: "Dimensiones de análisis" },
+      { value: 13, label: "Fases de research por run" },
+      { value: 7, suffix: " min", label: "Tiempo medio al veredicto" },
+      { value: 14, suffix: " días", label: "Garantía money-back" }
     ]
   },
 
   offer: {
-    eyebrow: "Oferta de lanzamiento",
-    headline: "Todo lo que recibes hoy",
-    subheadline: "Una solución completa, no solo una plantilla.",
-    priceAnchor: "297€",
-    price: "97€",
-    priceNote: "Pago único · Sin suscripción",
+    eyebrow: "Plan Starter · Founder's edition",
+    headline: "Todo lo que recibes con el primer plan",
+    subheadline: "5 runs al mes. Veredicto, scorecard y plan en cada uno.",
+    priceAnchor: "59€/mes",
+    price: "24,90€",
+    priceNote: "ÚNICO PAGO",
     included: [
-      "Landing canónica completa con 14 secciones persuasivas",
-      "Componente 3D premium adaptable a tu marca",
-      "Sistema de diseño con tokens, glassmorphism y bento grid",
-      "Hooks de animación reutilizables (Framer Motion + GSAP)",
-      "Eventos de conversión preparados para Pixel y GA4",
-      "Documentación de personalización y soporte por email"
+      "5 runs/mes con análisis completo (depth: standard)",
+      "Veredicto + scorecard de 11 dimensiones + plan 30/60/90 descargable",
+      "Plantilla 'Validador 7 minutos' + minicurso 'Cómo leer un veredicto'",
+      ,
+      "Acceso a la rúbrica abierta y a la metodología completa",
+      
     ],
-    primaryCTA: "Quiero acceder ahora",
-    secondaryCTA: "Hablar con el equipo"
+    primaryCTA: "Quiero mi acceso ahora",
+
   },
 
   urgency: {
-    headline: "Condiciones especiales activas",
+    headline: "Founder's edition activa",
     description:
-      "El precio de lanzamiento y los bonus incluidos forman parte de esta campaña. Cuando termine, la oferta se actualiza al precio estándar.",
-    limitText: "Plazas y condiciones limitadas durante esta campaña."
-  },
-
-  guarantee: {
-    headline: "Compra con tranquilidad",
-    description:
-      "Si en 14 días no estás convencido de la calidad de la landing, te devolvemos el 100% del importe. Sin preguntas, sin letra pequeña.",
-    points: [
-      "Reembolso íntegro durante 14 días",
-      "Soporte humano por email",
-      "Actualizaciones gratuitas durante 12 meses"
-    ]
+      "El precio actual y los bonus (minicurso, plantilla, comunidad VIP) forman parte del lanzamiento. Cuando el cupo de Founders se complete, los planes pasan al precio estándar.",
+    limitText: "Condiciones de Founder activas durante esta campaña."
   },
 
   faq: [
     {
-      question: "¿Para quién es esta landing?",
+      question: "¿En qué se diferencia de Helium 10, Sell The Trend o Niche Scraper?",
       answer:
-        "Para cualquier negocio, infoproducto, SaaS, ecommerce o servicio profesional que necesite una página de venta clara, premium y orientada a conversión."
+        "Filadrive es research con veredicto. Las otras te dan datos sueltos; Filadrive cruza fuentes y emite una recomendación clara — DESCARTAR, TESTEAR, LANZAR o ESCALAR. Y todo en español nativo."
     },
     {
-      question: "¿Necesito saber programar para adaptarla?",
+      question: "¿Sirve si vendo en Amazon, Shopify o TikTok Shop?",
       answer:
-        "No. Toda la copia, precios y CTAs se editan desde un único archivo de configuración. Solo si quieres personalizar visualmente al 100% recomendamos conocimientos básicos de CSS."
+        "Sí. Filadrive es agnóstica de plataforma. Si vendes producto físico, digital o dropshipping en cualquier canal, el research aplica. Si tu nicho es Amazon-only, considera Helium 10 como complemento."
     },
     {
-      question: "¿Qué pasa después de comprar?",
+      question: "¿Qué pasa si el veredicto es DESCARTAR?",
       answer:
-        "Recibes acceso inmediato al proyecto, instrucciones de despliegue y soporte por email para resolver cualquier duda durante la implementación."
+        "Te has ahorrado un lanzamiento que probablemente no funcionaba. El report te explica por qué y qué cambiaría el veredicto (cambiar de proveedor, pivotar segmento, esperar a otra estación)."
     },
     {
-      question: "¿Puedo conectarla con mi CRM, email o checkout?",
+      question: "¿Cómo se calculan los puntajes?",
       answer:
-        "Sí. Está preparada para integrar Stripe, MailerLite, ActiveCampaign, Brevo, WhatsApp Business o cualquier endpoint propio."
+        "La rúbrica es abierta y pública: 11 dimensiones, 100 puntos. Cada puntaje viene con su fuente (Trends, SERP, Amazon, ads activos) y su nivel de confianza (alto, medio o bajo)."
     },
     {
-      question: "¿Y si finalmente no es para mí?",
+      question: "¿Mi idea está protegida? ¿Subiréis mis nichos a alguna parte?",
       answer:
-        "Tienes 14 días para probarla. Si no encaja con tu proyecto, te devolvemos el 100% del importe sin preguntas."
+        "No. Tus runs son privados. No vendemos datos ni los usamos para entrenar nada. La metodología es abierta; los datos de cada run son tuyos."
     },
     {
-      question: "¿Por qué debería actuar ahora?",
+      question: "¿Funciona si soy completamente principiante?",
       answer:
-        "Las condiciones actuales (precio de lanzamiento + bonus) forman parte de esta campaña. Cuando termine, la oferta se actualiza al precio estándar."
+        "Está pensado para ti. El minicurso 'Cómo leer un veredicto' + las plantillas + la comunidad cubren la curva inicial."
+    },
+    {
+      question: "¿Hay garantía?",
+      answer:
+        "Trial 14 días money-back, sin preguntas. Si no descubres al menos 1 oportunidad real para tu nicho, te devolvemos tu dinero al contactar soporte."
     }
   ],
 
   finalCTA: {
-    eyebrow: "Último paso",
-    headline: "Da el siguiente paso hacia una web que sí vende",
+    eyebrow: "Decisión simple",
+    headline: "Activa tu acceso. Veredicto en 7 minutos.",
     description:
-      "Una decisión simple. Una landing premium lista para convertir. Empieza hoy con la garantía de 14 días.",
-    button: "Sí, quiero empezar ahora",
-    microcopy: "Acceso inmediato · Garantía 14 días · Soporte humano"
+      "Acceso inmediato. 14 días money-back. Datos 100% tuyos. La próxima decisión que tomes sobre un producto puede tener evidencia detrás.",
+    button: "Quiero mi acceso ahora",
+    microcopy: "Sin tarjeta · 90 segundos para empezar · Acceso inmediato"
   },
 
   footer: {
     description:
-      "Landing canónica de alta conversión. Diseñada para escalar con tu marca, tu producto y tu equipo.",
+      "SaaS de research e-commerce con veredicto. Evidencia trazable, en español, sin marketing humo. Helium 10®, Jungle Scout®, Sell The Trend® y otras marcas son de sus propietarios. Filadrive no está afiliada.",
     columns: [
       {
         title: "Producto",
         links: [
-          { label: "Características", href: "#benefits" },
+          { label: "Beneficios", href: "#benefits" },
           { label: "Cómo funciona", href: "#how" },
-          { label: "Precios", href: "#offer" },
+          { label: "Planes", href: "#offer" },
           { label: "FAQ", href: "#faq" }
         ]
       },
       {
         title: "Recursos",
         links: [
+          { label: "Rúbrica abierta", href: "#" },
           { label: "Documentación", href: "#" },
-          { label: "Guía de personalización", href: "#" },
-          { label: "Casos de éxito", href: "#proof" }
+          { label: "Comunidad Discord", href: "#" }
         ]
       },
       {
@@ -299,16 +391,20 @@ export const landingContent = {
     { label: "Beneficios", href: "#benefits" },
     { label: "Cómo funciona", href: "#how" },
     { label: "Testimonios", href: "#proof" },
-    { label: "Precios", href: "#offer" },
+    { label: "Planes", href: "#offer" },
     { label: "FAQ", href: "#faq" }
   ],
 
   // Configuración de conversión: cambia type/url para redirigir el CTA principal.
-  // type: "external" abre la URL, "scroll" hace scroll al id, "callback" llama a tu handler.
+  // type:
+  //   "checkout"  → redirige en la MISMA pestaña (Stripe Payment Link, etc)
+  //   "external"  → abre URL en nueva pestaña (links de soporte, docs...)
+  //   "scroll"    → scroll suave al id (#offer)
+  //   "callback"  → llama a conversion.callback(payload)
   conversion: {
-    type: "scroll",
-    url: "#offer",
-    eventName: "lead_intent"
+    type: "checkout",
+    url: "https://buy.stripe.com/test_00w7sE2ju7ZBfjj1bV04800",
+    eventName: "checkout_open"
   }
 };
 

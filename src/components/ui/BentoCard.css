@@ -29,9 +29,9 @@
   width: 44px;
   height: 44px;
   border-radius: var(--radius-md);
-  background: rgba(124, 92, 255, 0.16);
-  border: 1px solid rgba(124, 92, 255, 0.32);
-  color: #cdbcff;
+  background: rgba(255, 107, 53, 0.16);
+  border: 1px solid rgba(255, 107, 53, 0.32);
+  color: #ffd9c0;
 }
 
 .bento-card__title {
@@ -52,7 +52,7 @@
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(124, 92, 255, 0) 0%, rgba(34, 211, 238, 0.3) 100%);
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0) 0%, rgba(251, 191, 36, 0.3) 100%);
   opacity: 0;
   transition: opacity var(--transition-base);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -67,8 +67,8 @@
 }
 
 .bento-card--gradient {
-  background: linear-gradient(135deg, rgba(124, 92, 255, 0.18) 0%, rgba(34, 211, 238, 0.1) 100%);
-  border-color: rgba(124, 92, 255, 0.35);
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.18) 0%, rgba(251, 191, 36, 0.1) 100%);
+  border-color: rgba(255, 107, 53, 0.35);
 }
 
 .bento-card--gradient .bento-card__icon {
@@ -99,5 +99,150 @@
     grid-column: span 1;
     grid-row: auto;
     min-height: 200px;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   Variante FLIP: la card gira 180° en el eje Y al hover
+   y revela el reverso con info adicional del producto.
+   Estructura: .bento-card--flip > .bento-card__inner > .bento-card__face × 2
+   ───────────────────────────────────────────── */
+
+.bento-card--flip {
+  /* Anular fondo/borde del padre — los aplican las caras */
+  background: transparent;
+  border: none;
+  padding: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  overflow: visible;
+  /* Perspectiva 3D para el flip */
+  perspective: 1200px;
+}
+
+.bento-card--flip .bento-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  transform-style: preserve-3d;
+  transition: transform 0.85s var(--ease-out);
+}
+
+.bento-card--flip:hover .bento-card__inner,
+.bento-card--flip:focus-within .bento-card__inner {
+  transform: rotateY(180deg);
+}
+
+.bento-card__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  overflow: hidden;
+  isolation: isolate;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+/* Front face (visible al inicio) */
+.bento-card__face--front {
+  /* Hereda los estilos base */
+}
+
+.bento-card--flip.bento-card--gradient .bento-card__face--front {
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.18) 0%, rgba(251, 191, 36, 0.1) 100%);
+  border-color: rgba(255, 107, 53, 0.35);
+}
+
+.bento-card--flip.bento-card--gradient .bento-card__icon {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+/* Back face (rotada 180° por defecto) */
+.bento-card__face--back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.22) 0%, rgba(251, 191, 36, 0.14) 100%);
+  border-color: rgba(255, 107, 53, 0.4);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bento-card__back-text {
+  margin: 0;
+  color: var(--color-text);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.bento-card__back-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-primary);
+  color: #0a0a14;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-top: auto;
+}
+
+/* Hint discreto en la front face para indicar la interacción */
+.bento-card__hint {
+  position: absolute;
+  right: var(--space-5);
+  bottom: var(--space-5);
+  font-size: var(--fs-xs);
+  color: var(--color-text-soft);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+  letter-spacing: 0.02em;
+}
+
+.bento-card--flip:hover .bento-card__hint,
+.bento-card--flip:focus-within .bento-card__hint {
+  opacity: 0;
+  transform: translateX(0);
+}
+
+.bento-card--flip .bento-card__face--front:hover .bento-card__hint {
+  opacity: 0.7;
+  transform: translateX(0);
+}
+
+/* Mostrar el hint mientras NO se está rotando (al pasar por encima de la card) */
+.bento-card--flip:not(:hover) .bento-card__hint {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bento-card--flip .bento-card__inner,
+  .bento-card--flip:hover .bento-card__inner {
+    transition: none;
+    transform: none;
+  }
+  /* En reduced-motion mostramos ambas caras stack vertical sin flip */
+  .bento-card__face--back {
+    position: relative;
+    transform: none;
+    margin-top: var(--space-4);
+  }
+  .bento-card__face--front {
+    position: relative;
   }
 }

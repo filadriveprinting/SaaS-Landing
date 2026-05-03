@@ -68,6 +68,13 @@ export function handleCTA(conversion, payload = {}) {
     return;
   }
 
+  // Checkout: redirige en la MISMA pestaña al payment provider (Stripe, etc).
+  // Estándar para flows de pago — el usuario completa el pago y vuelve via success URL.
+  if (conversion.type === "checkout" && conversion.url) {
+    if (isBrowser) window.location.href = conversion.url;
+    return;
+  }
+
   if (conversion.type === "callback" && typeof conversion.callback === "function") {
     conversion.callback(payload);
     return;

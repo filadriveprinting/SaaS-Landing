@@ -7,6 +7,7 @@ import "./CTAButton.css";
  * - variant: primary | secondary | ghost
  * - size: sm | md | lg
  * - icon: nombre de icono lucide opcional (al final del label)
+ * - aurora: añade un halo gradient animado (purple → cyan → pink) detrás del botón
  */
 export function CTAButton({
   children,
@@ -19,6 +20,7 @@ export function CTAButton({
   href,
   type = "button",
   className = "",
+  aurora = false,
   ...rest
 }) {
   const Icon = icon ? Icons[icon] || Icons.ArrowRight : null;
@@ -51,19 +53,26 @@ export function CTAButton({
     transition: { type: "spring", stiffness: 320, damping: 24 }
   };
 
-  if (href) {
-    return (
-      <motion.a className={cls} href={href} onClick={onClick} {...motionProps} {...rest}>
-        {content}
-      </motion.a>
-    );
-  }
-
-  return (
+  const button = href ? (
+    <motion.a className={cls} href={href} onClick={onClick} {...motionProps} {...rest}>
+      {content}
+    </motion.a>
+  ) : (
     <motion.button className={cls} type={type} onClick={onClick} {...motionProps} {...rest}>
       {content}
     </motion.button>
   );
+
+  if (aurora) {
+    return (
+      <span className={`cta-aurora ${fullWidth ? "cta-aurora--full" : ""}`}>
+        <span className="cta-aurora__glow" aria-hidden="true" />
+        {button}
+      </span>
+    );
+  }
+
+  return button;
 }
 
 export default CTAButton;

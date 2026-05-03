@@ -15,6 +15,8 @@
   white-space: nowrap;
   transition: color var(--transition-base), border-color var(--transition-base),
     background var(--transition-base);
+  position: relative;
+  isolation: isolate;
 }
 
 .trust-badge:hover {
@@ -24,7 +26,95 @@
 }
 
 .trust-badge--accent {
-  color: #cdbcff;
-  border-color: rgba(124, 92, 255, 0.4);
-  background: rgba(124, 92, 255, 0.12);
+  color: #ffd9c0;
+  border-color: rgba(255, 107, 53, 0.4);
+  background: rgba(255, 107, 53, 0.12);
+}
+
+/* ─────────────────────────────────────────────
+   Efecto spotlight aplicado a los badges del TrustBar.
+   Hue interpolado entre purple (#7c5cff ≈ 252) y cyan (#22d3ee ≈ 188)
+   siguiendo la posición horizontal del cursor en el viewport.
+   El gradiente usa background-attachment: fixed → la luz parece
+   pasar a través de los badges como un haz unificado.
+   ───────────────────────────────────────────── */
+
+.trust-bar__items--spotlight {
+  /* Defaults para que cascadeen a los badges si aún no hay cursor */
+  --x: 0;
+  --y: 0;
+  --xp: 0.5;
+  --hue-base: 22;
+  --hue-spread: 22; /* 22 → 44: orange → amber */
+  --hue: calc(var(--hue-base) + (var(--xp) * var(--hue-spread)));
+  --spotlight-size: 360px;
+}
+
+.trust-bar__items--spotlight .trust-badge {
+  background-color: var(--glass-bg);
+  background-image: radial-gradient(
+    var(--spotlight-size) var(--spotlight-size) at calc(var(--x) * 1px)
+      calc(var(--y) * 1px),
+    hsl(var(--hue, 22) 95% 65% / 0.22),
+    transparent 65%
+  );
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.trust-bar__items--spotlight .trust-badge::before,
+.trust-bar__items--spotlight .trust-badge::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1px;
+  z-index: 1;
+}
+
+/* Capa de borde con color (purple → cyan según posición del cursor) */
+.trust-bar__items--spotlight .trust-badge::before {
+  background-image: radial-gradient(
+    calc(var(--spotlight-size) * 0.7) calc(var(--spotlight-size) * 0.7) at
+      calc(var(--x) * 1px) calc(var(--y) * 1px),
+    hsl(var(--hue, 22) 100% 65% / 1),
+    transparent 70%
+  );
+  filter: brightness(1.4);
+  opacity: 0.85;
+}
+
+/* Capa de núcleo blanco para que el borde "brille" */
+.trust-bar__items--spotlight .trust-badge::after {
+  background-image: radial-gradient(
+    calc(var(--spotlight-size) * 0.4) calc(var(--spotlight-size) * 0.4) at
+      calc(var(--x) * 1px) calc(var(--y) * 1px),
+    hsl(0 0% 100% / 0.9),
+    transparent 70%
+  );
+  opacity: 0.6;
+}
+
+.trust-bar__items--spotlight .trust-badge:hover {
+  color: var(--color-text);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-bar__items--spotlight .trust-badge {
+    background-image: none;
+  }
+  .trust-bar__items--spotlight .trust-badge::before,
+  .trust-bar__items--spotlight .trust-badge::after {
+    display: none;
+  }
 }

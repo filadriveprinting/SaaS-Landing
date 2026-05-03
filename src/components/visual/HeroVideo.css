@@ -1,0 +1,56 @@
+.hero-video {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+  isolation: isolate;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  /* Aspect cuadrado fuerza recorte de las bandas negras laterales del archivo. */
+  aspect-ratio: 1 / 1;
+}
+
+.hero-video__media {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+}
+
+/* Marco mimético: vignette interior que funde los bordes del video
+   con el color del fondo de la página. Sin contornos duros. */
+.hero-video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(
+      120% 120% at 50% 50%,
+      transparent 55%,
+      rgba(10, 10, 13, 0.55) 90%,
+      rgba(10, 10, 13, 0.95) 100%
+    );
+  box-shadow: inset 0 0 80px rgba(10, 10, 13, 0.55);
+}
+
+.hero-video__glow {
+  position: absolute;
+  inset: -12%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.45) 0%, transparent 60%);
+  filter: blur(70px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .hero-video {
+    max-width: 480px;
+  }
+}

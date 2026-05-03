@@ -5,6 +5,7 @@ import { landingContent } from "../../data/landingContent";
 
 export function SolutionSection() {
   const { solution } = landingContent;
+  const verdicts = solution.verdicts || [];
 
   return (
     <section className="section" id="solution">
@@ -34,15 +35,28 @@ export function SolutionSection() {
           </ul>
         </motion.div>
 
-        <motion.div
-          className="solution__visual"
-          initial={{ opacity: 0, scale: 0.92 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="solution__visual-orb anim-float" />
-        </motion.div>
+        {verdicts.length > 0 && (
+          <div className="solution__verdicts">
+            {verdicts.map((v, i) => (
+              <motion.div
+                key={v.name}
+                className={`verdict-card verdict-card--${v.variant}`}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.55, delay: 0.1 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -4 }}
+              >
+                <div className="verdict-card__head">
+                  <span className="verdict-card__range">{v.range}</span>
+                  <span className="verdict-card__name">{v.name}</span>
+                </div>
+                <p className="verdict-card__desc">{v.description}</p>
+                <span className="verdict-card__bar" aria-hidden="true" />
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

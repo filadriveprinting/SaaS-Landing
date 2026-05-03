@@ -106,22 +106,22 @@
 .section__bg::after {
   content: "";
   position: absolute;
-  width: 60vw;
-  height: 60vw;
+  width: 50vw;
+  height: 50vw;
   border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.4;
+  filter: blur(140px);
+  opacity: 0.22;
   pointer-events: none;
 }
 
 .section__bg::before {
-  background: rgba(124, 92, 255, 0.35);
+  background: rgba(255, 107, 53, 0.28);
   top: -20vw;
   left: -20vw;
 }
 
 .section__bg::after {
-  background: rgba(34, 211, 238, 0.25);
+  background: rgba(251, 191, 36, 0.18);
   bottom: -25vw;
   right: -20vw;
 }

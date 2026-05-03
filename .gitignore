@@ -25,3 +25,8 @@ dist-ssr
 
 # Claude Code internal session state
 .claude/
+
+# Source de assets (originales sin procesar) y briefings del SaaS
+Contenido/
+contenido/
+contenido de valor

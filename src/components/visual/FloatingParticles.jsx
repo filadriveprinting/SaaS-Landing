@@ -5,7 +5,7 @@ import "./FloatingParticles.css";
  * Capa decorativa de partículas en canvas 2D.
  * Ligera (sin three) y respetuosa con prefers-reduced-motion.
  */
-export function FloatingParticles({ count = 36, color = "rgba(124, 92, 255, 0.45)", className = "" }) {
+export function FloatingParticles({ count = 36, color = "rgba(255, 107, 53, 0.45)", className = "" }) {
   const canvasRef = useRef(null);
   const rafRef = useRef(0);
   const particles = useMemo(() => Array.from({ length: count }), [count]);
