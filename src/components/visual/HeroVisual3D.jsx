@@ -13,16 +13,16 @@ function MorphingTorus() {
     }
   });
   return (
-    <mesh ref={ref} scale={1.4}>
-      <torusKnotGeometry args={[1, 0.32, 220, 32]} />
+    <mesh ref={ref} scale={1.5}>
+      <torusKnotGeometry args={[1, 0.32, 128, 20]} />
       <MeshDistortMaterial
         color="#ff6b35"
         emissive="#fbbf24"
         emissiveIntensity={0.25}
         roughness={0.15}
         metalness={0.7}
-        distort={0.32}
-        speed={1.4}
+        distort={0.28}
+        speed={1.2}
       />
     </mesh>
   );
@@ -30,18 +30,18 @@ function MorphingTorus() {
 
 function FloatingSphere() {
   return (
-    <Float speed={1.2} rotationIntensity={0.6} floatIntensity={1.4}>
-      <mesh position={[2.4, 1.2, -1]} scale={0.6}>
+    <Float speed={1.1} rotationIntensity={0.45} floatIntensity={0.9}>
+      <mesh position={[1.85, 1.3, -1.2]} scale={0.75}>
         <icosahedronGeometry args={[1, 1]} />
         <MeshTransmissionMaterial
           backside
-          samples={6}
+          samples={3}
           thickness={0.6}
-          chromaticAberration={0.4}
-          anisotropy={0.4}
-          distortion={0.3}
-          distortionScale={0.4}
-          temporalDistortion={0.1}
+          chromaticAberration={0.2}
+          anisotropy={0.3}
+          distortion={0.2}
+          distortionScale={0.2}
+          temporalDistortion={0.04}
           color="#fbbf24"
         />
       </mesh>
@@ -51,9 +51,9 @@ function FloatingSphere() {
 
 function FloatingRing() {
   return (
-    <Float speed={0.8} rotationIntensity={0.4} floatIntensity={1}>
-      <mesh position={[-2.6, -1.2, -0.5]} rotation={[0.6, 0.4, 0]} scale={0.5}>
-        <torusGeometry args={[1, 0.06, 32, 200]} />
+    <Float speed={0.8} rotationIntensity={0.35} floatIntensity={0.7}>
+      <mesh position={[-2.05, -1.3, -0.7]} rotation={[0.6, 0.4, 0]} scale={0.65}>
+        <torusGeometry args={[1, 0.06, 24, 128]} />
         <meshStandardMaterial
           color="#ff9b6c"
           emissive="#ff9b6c"
@@ -72,7 +72,7 @@ function Scene() {
       <ambientLight intensity={0.4} />
       <directionalLight position={[5, 5, 5]} intensity={1.2} color="#ffb47e" />
       <pointLight position={[-4, -3, 2]} intensity={1.4} color="#fbbf24" />
-      <Float speed={1} rotationIntensity={0.5} floatIntensity={1.2}>
+      <Float speed={1} rotationIntensity={0.3} floatIntensity={0.4}>
         <MorphingTorus />
       </Float>
       <FloatingSphere />
@@ -100,8 +100,8 @@ export function HeroVisual3D() {
   return (
     <div className="hero-visual" aria-hidden="true">
       <Canvas
-        camera={{ position: [0, 0, 5.5], fov: 45 }}
-        dpr={[1, 1.6]}
+        camera={{ position: [0, 0, 7.5], fov: 45 }}
+        dpr={[1, 1.5]}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
         onCreated={({ gl }) => {
           gl.setClearColor(0x000000, 0);

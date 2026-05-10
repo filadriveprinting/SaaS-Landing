@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, Mail, ArrowRight, ShieldCheck } from "lucide-react";
+import { CheckCircle2, ShieldCheck } from "lucide-react";
 import { CTAButton } from "../components/ui/CTAButton";
 import { ScrollProgress } from "../components/visual/ScrollProgress";
 import { Header } from "../components/layout/Header";
@@ -12,9 +12,20 @@ import "./ThankYouPage.css";
  * Stripe redirige aquí con ?session_id={CHECKOUT_SESSION_ID} si lo configuras.
  */
 export function ThankYouPage() {
-  const { brand, product } = landingContent;
+  const { brand, product, thankYou } = landingContent;
   const params = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null;
   const sessionId = params?.get("session_id") || null;
+  const paymentIntentId =
+    params?.get("payment_intent") || params?.get("pi") || null;
+  const dashboardHref = thankYou?.primaryCTAUrl
+    ? `${thankYou.primaryCTAUrl}${
+        paymentIntentId
+          ? (thankYou.primaryCTAUrl.includes("?") ? "&" : "?") +
+            "pi=" +
+            encodeURIComponent(paymentIntentId)
+          : ""
+      }`
+    : null;
 
   return (
     <>
@@ -48,6 +59,23 @@ export function ThankYouPage() {
               Tu pago se ha procesado correctamente. En los próximos minutos recibirás un email con
               el recibo y los pasos para acceder a <strong>{product.name}</strong>.
             </p>
+
+            {dashboardHref && (
+              <div className="thank-you__primary">
+                <CTAButton
+                  href={dashboardHref}
+                  size="lg"
+                  icon="ArrowRight"
+                  iconLeft="LayoutDashboard"
+                  aurora
+                >
+                  {thankYou.primaryCTA}
+                </CTAButton>
+                {thankYou?.primaryCTAHelper && (
+                  <p className="thank-you__primary-helper">{thankYou.primaryCTAHelper}</p>
+                )}
+              </div>
+            )}
 
             <div className="thank-you__steps">
               <div className="thank-you__step">

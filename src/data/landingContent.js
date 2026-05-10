@@ -26,7 +26,20 @@ export const landingContent = {
       "El primer SaaS de research e-commerce en español que te dice si lanzar tu próximo producto, con evidencia. No con suposiciones.",
     primaryCTA: "Quiero mi acceso ahora",
     secondaryCTA: "Ver cómo funciona",
+    secondaryVideoUrl: "/demo.mp4",
     trustNote: "Pago Seguro · Datos 100% privados · Soporte humano"
+  },
+
+  // Lead magnet: dossier informativo gratis para captar al lead antes de la conversión.
+  // Se renderiza como bloque secundario en el hero, debajo del CTA "Ver cómo funciona".
+  freebie: {
+    eyebrow: "📥 Recurso gratuito",
+    description:
+      "Llévate la guía completa con la metodología de las 11 dimensiones — la rúbrica entera, los 4 veredictos y un tour del dashboard.",
+    cta: "Guía GRATIS",
+    fileUrl: "/guia-filadrive.pdf",
+    fileName: "Filadrive-Intelligence-Guia.pdf",
+    eventName: "lead_magnet_download"
   },
 
   trustBar: {
@@ -292,9 +305,7 @@ export const landingContent = {
       "5 runs/mes con análisis completo (depth: standard)",
       "Veredicto + scorecard de 11 dimensiones + plan 30/60/90 descargable",
       "Plantilla 'Validador 7 minutos' + minicurso 'Cómo leer un veredicto'",
-      ,
-      "Acceso a la rúbrica abierta y a la metodología completa",
-      
+      "Acceso a la rúbrica abierta y a la metodología completa"
     ],
     primaryCTA: "Quiero mi acceso ahora",
 
@@ -354,6 +365,14 @@ export const landingContent = {
     microcopy: "Sin tarjeta · 90 segundos para empezar · Acceso inmediato"
   },
 
+  // Página de gracias post-pago: CTA primario que lleva al dashboard / onboarding del cliente.
+  thankYou: {
+    primaryCTA: "Acceder a mi dashboard",
+    // URL real del onboarding o login del producto (substituir cuando tengas el endpoint listo).
+    primaryCTAUrl: "https://app.filadrive.io/onboarding",
+    primaryCTAHelper: "Configura tu cuenta y lanza tu primer run en menos de 2 minutos."
+  },
+
   footer: {
     description:
       "SaaS de research e-commerce con veredicto. Evidencia trazable, en español, sin marketing humo. Helium 10®, Jungle Scout®, Sell The Trend® y otras marcas son de sus propietarios. Filadrive no está afiliada.",
@@ -363,7 +382,6 @@ export const landingContent = {
         links: [
           { label: "Beneficios", href: "#benefits" },
           { label: "Cómo funciona", href: "#how" },
-          { label: "Planes", href: "#offer" },
           { label: "FAQ", href: "#faq" }
         ]
       },
@@ -391,7 +409,6 @@ export const landingContent = {
     { label: "Beneficios", href: "#benefits" },
     { label: "Cómo funciona", href: "#how" },
     { label: "Testimonios", href: "#proof" },
-    { label: "Planes", href: "#offer" },
     { label: "FAQ", href: "#faq" }
   ],
 
@@ -403,7 +420,7 @@ export const landingContent = {
   //   "callback"  → llama a conversion.callback(payload)
   conversion: {
     type: "checkout",
-    url: "https://buy.stripe.com/test_00w7sE2ju7ZBfjj1bV04800",
+    url: "/pago",
     eventName: "checkout_open"
   }
 };

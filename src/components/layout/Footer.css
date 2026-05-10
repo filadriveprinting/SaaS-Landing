@@ -20,26 +20,11 @@
   margin-bottom: var(--space-3);
 }
 
-.site-footer__mark {
-  width: 28px;
-  height: 28px;
-  border-radius: 9px;
-  background: var(--gradient-primary);
-  position: relative;
-}
-.site-footer__mark::after {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  border-radius: 6px;
-  background: rgba(10, 10, 13, 0.55);
-}
-
-.site-footer__name {
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-size: var(--fs-sm);
+.site-footer__logo {
+  display: block;
+  height: 120px;
+  width: auto;
+  max-width: 440px;
 }
 
 .site-footer__desc {

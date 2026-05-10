@@ -1,8 +1,8 @@
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
-import { StickyCTA } from "../components/layout/StickyCTA";
 
 import { ScrollProgress } from "../components/visual/ScrollProgress";
+import { BackgroundPaths } from "../components/visual/BackgroundPaths";
 
 import { HeroSection } from "../components/sections/HeroSection";
 import { TrustBar } from "../components/sections/TrustBar";
@@ -21,6 +21,7 @@ import { FinalCTA } from "../components/sections/FinalCTA";
 export function LandingPage() {
   return (
     <>
+      <BackgroundPaths />
       <ScrollProgress />
       <Header />
       <main>
@@ -39,7 +40,6 @@ export function LandingPage() {
         <FinalCTA />
       </main>
       <Footer />
-      <StickyCTA />
     </>
   );
 }

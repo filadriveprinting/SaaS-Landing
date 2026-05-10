@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { Download } from "lucide-react";
 import { CTAButton } from "../ui/CTAButton";
-import { HeroVideo } from "../visual/HeroVideo";
+import { VideoModal } from "../ui/VideoModal";
+import { HeroVisual3D } from "../visual/HeroVisual3D";
 import { FloatingParticles } from "../visual/FloatingParticles";
 import { landingContent } from "../../data/landingContent";
-import { handleCTA } from "../../utils/conversionEvents";
+import { handleCTA, trackCTA } from "../../utils/conversionEvents";
 
 // Nota: el CTA principal del hero se ha movido al Header y al StickyCTA.
 // Aquí solo queda el CTA secundario "Ver cómo funciona".
@@ -19,12 +22,30 @@ const item = {
 };
 
 export function HeroSection() {
-  const { hero, product } = landingContent;
+  const { hero, product, freebie } = landingContent;
+  const [videoOpen, setVideoOpen] = useState(false);
 
   const onSecondary = () => {
+    if (hero.secondaryVideoUrl) {
+      trackCTA({
+        location: "hero_secondary",
+        label: hero.secondaryCTA,
+        eventName: "see_how_it_works_video_open",
+        productName: product.name
+      });
+      setVideoOpen(true);
+      return;
+    }
     handleCTA(
       { type: "scroll", url: "#how", eventName: "see_how_it_works" },
       { location: "hero_secondary", label: hero.secondaryCTA, productName: product.name }
+    );
+  };
+
+  const onFreebie = () => {
+    handleCTA(
+      { type: "external", url: freebie.fileUrl, eventName: freebie.eventName },
+      { location: "hero_freebie", label: freebie.cta, productName: product.name }
     );
   };
 
@@ -58,6 +79,23 @@ export function HeroSection() {
               {hero.secondaryCTA}
             </CTAButton>
           </motion.div>
+          {freebie && (
+            <motion.div variants={item} className="hero__freebie">
+              <div className="hero__freebie-text">
+                <span className="hero__freebie-eyebrow">{freebie.eyebrow}</span>
+                <p className="hero__freebie-desc">{freebie.description}</p>
+              </div>
+              <a
+                href={freebie.fileUrl}
+                download={freebie.fileName}
+                onClick={onFreebie}
+                className="hero__freebie-btn"
+              >
+                <Download size={16} strokeWidth={2.4} />
+                <span>{freebie.cta}</span>
+              </a>
+            </motion.div>
+          )}
           <motion.div variants={item} className="hero__trust">
             <span className="hero__trust-dot" />
             {hero.trustNote}
@@ -70,9 +108,15 @@ export function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          <HeroVideo />
+          <HeroVisual3D />
         </motion.div>
       </div>
+
+      <VideoModal
+        open={videoOpen}
+        src={hero.secondaryVideoUrl}
+        onClose={() => setVideoOpen(false)}
+      />
     </section>
   );
 }

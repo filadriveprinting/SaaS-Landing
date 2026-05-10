@@ -7,7 +7,7 @@ import { handleCTA } from "../../utils/conversionEvents";
 import "./Header.css";
 
 export function Header() {
-  const { brand, navigation, conversion, hero, product } = landingContent;
+  const { brand, navigation, conversion, hero, product, offer } = landingContent;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -44,9 +44,8 @@ export function Header() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="container site-header__inner">
-        <a href="#top" className="site-header__brand" onClick={goTo("#top")}>
-          <span className="site-header__brand-mark" aria-hidden="true" />
-          <span className="site-header__brand-text">{brand.logoText}</span>
+        <a href="#top" className="site-header__brand" onClick={goTo("#top")} aria-label={brand.name}>
+          <img src="/logo.svg" alt={brand.name} className="site-header__logo" />
         </a>
 
         <nav className={`site-header__nav ${open ? "is-open" : ""}`} aria-label="Principal">
@@ -60,6 +59,13 @@ export function Header() {
               {item.label}
             </a>
           ))}
+          <div className="site-header__pricing" aria-hidden="true">
+            <span className="site-header__pricing-label">{product.name}</span>
+            <span className="site-header__pricing-price">
+              <span className="site-header__pricing-anchor">{offer.priceAnchor}</span>
+              <span className="site-header__pricing-now">{offer.price}</span>
+            </span>
+          </div>
           <div className="site-header__nav-cta">
             <CTAButton onClick={handlePrimary} size="sm" icon="ArrowRight">
               {hero.primaryCTA}

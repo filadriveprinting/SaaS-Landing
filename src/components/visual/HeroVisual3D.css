@@ -1,18 +1,19 @@
 .hero-visual {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  max-width: 580px;
+  aspect-ratio: 1.4 / 1;
+  max-width: 720px;
   margin-inline: auto;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
   isolation: isolate;
+  contain: layout paint;
+  transform: translateZ(0);
 }
 
 .hero-visual canvas {
   width: 100% !important;
   height: 100% !important;
-  border-radius: inherit;
+  display: block;
+  will-change: transform;
 }
 
 .hero-visual__glow {
@@ -67,7 +68,9 @@
 }
 
 @media (max-width: 720px) {
-  .hero-visual,
+  .hero-visual {
+    max-width: 460px;
+  }
   .hero-visual__fallback {
     max-width: 360px;
   }

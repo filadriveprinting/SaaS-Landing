@@ -13,6 +13,7 @@ export function useScrollReveal({ threshold = 0.18, rootMargin = "0px 0px -10% 0
     if (!node) return;
 
     if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- fallback síncrono cuando no hay IntersectionObserver
       setIsVisible(true);
       return;
     }

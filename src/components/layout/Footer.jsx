@@ -8,8 +8,7 @@ export function Footer() {
       <div className="container site-footer__inner">
         <div className="site-footer__brand">
           <div className="site-footer__brand-row">
-            <span className="site-footer__mark" aria-hidden="true" />
-            <span className="site-footer__name">{brand.logoText}</span>
+            <img src="/logo.svg" alt={brand.name} className="site-footer__logo" />
           </div>
           <p className="site-footer__desc">{footer.description}</p>
         </div>

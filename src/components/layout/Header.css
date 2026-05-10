@@ -27,29 +27,16 @@
 .site-header__brand {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-3);
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  font-size: var(--fs-sm);
-  text-transform: uppercase;
   color: var(--color-text);
+  flex-shrink: 0;
 }
 
-.site-header__brand-mark {
-  width: 28px;
-  height: 28px;
-  border-radius: 9px;
-  background: var(--gradient-primary);
-  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.45);
-  position: relative;
-}
-
-.site-header__brand-mark::after {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  border-radius: 6px;
-  background: rgba(10, 10, 13, 0.55);
+.site-header__logo {
+  display: block;
+  height: 100px;
+  width: auto;
+  max-width: 380px;
+  filter: drop-shadow(0 4px 14px rgba(255, 107, 53, 0.25));
 }
 
 .site-header__nav {
@@ -62,15 +49,56 @@
   font-size: var(--fs-sm);
   color: var(--color-text-muted);
   transition: color var(--transition-base);
+  white-space: nowrap;
+  text-align: center;
 }
 
 .site-header__link:hover {
   color: var(--color-text);
 }
 
+.site-header__pricing {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  line-height: 1.15;
+  margin-left: 7rem;
+  padding-right: var(--space-3);
+  border-right: 1px solid rgba(255, 107, 53, 0.25);
+}
+
+.site-header__pricing-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-primary-strong);
+  white-space: nowrap;
+}
+
+.site-header__pricing-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+}
+
+.site-header__pricing-anchor {
+  color: rgba(245, 245, 240, 0.42);
+  text-decoration: line-through;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.site-header__pricing-now {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
 .site-header__nav-cta {
   display: inline-flex;
-  margin-left: var(--space-4);
+  margin-left: var(--space-3);
 }
 
 .site-header__toggle {
@@ -113,5 +141,8 @@
   .site-header__nav-cta .cta-btn {
     width: 100%;
     justify-content: center;
+  }
+  .site-header__pricing {
+    display: none;
   }
 }
