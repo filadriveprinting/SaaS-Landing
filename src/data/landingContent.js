@@ -1,6 +1,8 @@
 // Contenido canónico de la landing.
 // Edita SOLO este archivo para adaptar la landing a cualquier producto, servicio o nicho.
 
+import { startCheckout } from "../utils/checkout";
+
 export const landingContent = {
   brand: {
     name: "Filadrive",
@@ -414,13 +416,18 @@ export const landingContent = {
 
   // Configuración de conversión: cambia type/url para redirigir el CTA principal.
   // type:
-  //   "checkout"  → redirige en la MISMA pestaña (Stripe Payment Link, etc)
+  //   "checkout"  → redirige en la MISMA pestaña a una URL fija (Stripe Payment Link, etc)
   //   "external"  → abre URL en nueva pestaña (links de soporte, docs...)
   //   "scroll"    → scroll suave al id (#offer)
   //   "callback"  → llama a conversion.callback(payload)
+  //
+  // Actualmente: callback → utils/checkout.js que pide a nuestro backend FastAPI
+  // crear una Stripe Checkout Session y redirige al usuario a Stripe.
+  // Asegúrate de que VITE_API_BASE_URL apunta al backend (ngrok en dev,
+  // dominio real en producción).
   conversion: {
-    type: "checkout",
-    url: "/pago",
+    type: "callback",
+    callback: startCheckout,
     eventName: "checkout_open"
   }
 };
