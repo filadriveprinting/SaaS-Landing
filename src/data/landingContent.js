@@ -1,8 +1,6 @@
 // Contenido canónico de la landing.
 // Edita SOLO este archivo para adaptar la landing a cualquier producto, servicio o nicho.
 
-import { startCheckout } from "../utils/checkout";
-
 export const landingContent = {
   brand: {
     name: "Filadrive",
@@ -376,10 +374,13 @@ export const landingContent = {
   },
 
   // Página de crear-cuenta: CTA del estado de éxito (tras crear cuenta).
-  // Cuando tengas el dashboard real, cambia successCtaUrl a tu URL externa (ej. https://app.tudominio.io).
+  // Apunta al dashboard real del repo saas-dashboard donde el usuario inicia sesión
+  // con las credenciales recién creadas (Supabase auth).
+  //   - Dev (corriendo `npm run dev` del saas-dashboard):  http://localhost:3000/login
+  //   - Prod (cuando lo despliegues en Vercel):            https://tu-dashboard.vercel.app/login
   createAccount: {
     successCta: "Ir a mi dashboard",
-    successCtaUrl: "/dashboard-inicio"
+    successCtaUrl: "http://localhost:3000/login"
   },
 
   footer: {
@@ -428,13 +429,12 @@ export const landingContent = {
   //   "scroll"    → scroll suave al id (#offer)
   //   "callback"  → llama a conversion.callback(payload)
   //
-  // Actualmente: callback → utils/checkout.js que pide a nuestro backend FastAPI
-  // crear una Stripe Checkout Session y redirige al usuario a Stripe.
-  // Asegúrate de que VITE_API_BASE_URL apunta al backend (ngrok en dev,
-  // dominio real en producción).
+  // Actual: redirige a /pago (Stripe Elements custom con paleta naranja).
+  // El cobro se procesa via /api/create-payment-intent y, tras succeeded,
+  // /api/create-account crea el usuario en Supabase para el dashboard.
   conversion: {
-    type: "callback",
-    callback: startCheckout,
+    type: "checkout",
+    url: "/pago",
     eventName: "checkout_open"
   }
 };
