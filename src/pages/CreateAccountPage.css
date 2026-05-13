@@ -1,0 +1,200 @@
+.create-account {
+  min-height: 100vh;
+  padding: clamp(5rem, 10vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+  position: relative;
+}
+
+.create-account__wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.create-account__card {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  padding: clamp(2rem, 5vw, 3rem);
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.08) 0%, rgba(251, 191, 36, 0.04) 100%);
+  border: 1px solid rgba(255, 107, 53, 0.28);
+  border-radius: var(--radius-xl);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.create-account__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(80% 60% at 50% 0%, rgba(255, 107, 53, 0.14), transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.create-account__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.32);
+  color: #6ee7b7;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+
+.create-account__title {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  margin: 0 0 var(--space-3);
+}
+
+.create-account__lead {
+  margin: 0 0 var(--space-6);
+  color: var(--color-text-muted);
+  font-size: var(--fs-base);
+  line-height: 1.5;
+}
+
+.create-account__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.create-account__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.create-account__label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+}
+
+.create-account__input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color var(--transition-base), background var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.create-account__input::placeholder {
+  color: var(--color-text-soft);
+}
+
+.create-account__input:hover {
+  border-color: var(--color-border-strong);
+}
+
+.create-account__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: rgba(255, 107, 53, 0.06);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.16);
+}
+
+.create-account__hint {
+  font-size: 0.78rem;
+  color: var(--color-text-soft);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.create-account__error {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  color: #fca5a5;
+  font-size: 0.88rem;
+}
+
+.create-account__submit {
+  margin-top: var(--space-2);
+}
+
+.create-account__legal {
+  margin: var(--space-3) 0 0;
+  font-size: 0.78rem;
+  color: var(--color-text-soft);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.create-account__legal a {
+  color: var(--color-primary-strong);
+}
+
+/* Success state */
+.create-account__success {
+  text-align: center;
+  padding: var(--space-4) 0;
+}
+
+.create-account__success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto var(--space-5);
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.18) 0%, rgba(52, 211, 153, 0.05) 100%);
+  border: 2px solid rgba(52, 211, 153, 0.4);
+  color: #34d399;
+  box-shadow: 0 0 40px rgba(52, 211, 153, 0.22);
+}
+
+.create-account__success-title {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  margin: 0 0 var(--space-3);
+  letter-spacing: -0.015em;
+}
+
+.create-account__success-lead {
+  margin: 0 0 var(--space-5);
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.create-account__success-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  text-align: left;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.create-account__success-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  color: var(--color-text);
+  font-size: 0.92rem;
+}
+
+.create-account__success-step svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}

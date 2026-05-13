@@ -109,40 +109,56 @@
 }
 
 @media (max-width: 880px) {
+  /* Sin hamburguesa: ocultamos el toggle y mantenemos la nav inline en el header. */
   .site-header__toggle {
-    display: inline-flex;
+    display: none;
   }
   .site-header__nav {
-    position: fixed;
-    inset: 64px var(--container-pad) auto var(--container-pad);
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--space-3);
-    padding: var(--space-6);
-    background: rgba(10, 10, 20, 0.95);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-lg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transform: translateY(-12px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity var(--transition-base), transform var(--transition-base);
-  }
-  .site-header__nav.is-open {
-    transform: translateY(0);
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transform: none;
     opacity: 1;
     pointer-events: auto;
   }
-  .site-header__nav-cta {
-    margin-left: 0;
-    width: 100%;
+  /* Los enlaces de navegación se ocultan en móvil — no caben con CTA siempre visible. */
+  .site-header__link {
+    display: none;
   }
-  .site-header__nav-cta .cta-btn {
-    width: 100%;
-    justify-content: center;
-  }
+  /* Chip de precio (FILADRIVE INTELLIGENCE / 24,90€) también oculto en móvil. */
   .site-header__pricing {
     display: none;
+  }
+  /* CTA siempre visible, sin ocupar todo el ancho. */
+  .site-header__nav-cta {
+    margin-left: 0;
+    width: auto;
+  }
+  .site-header__nav-cta .cta-btn {
+    width: auto;
+    justify-content: center;
+  }
+  /* Logo más pequeño para dejar sitio al CTA en pantallas estrechas. */
+  .site-header__logo {
+    height: 56px;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 420px) {
+  /* En móviles muy estrechos, todavía más compacto. */
+  .site-header__logo {
+    height: 44px;
+  }
+  .site-header__nav-cta .cta-btn {
+    padding-inline: 0.9rem;
+    font-size: 0.85rem;
   }
 }

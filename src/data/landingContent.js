@@ -365,12 +365,19 @@ export const landingContent = {
     microcopy: "Sin tarjeta · 90 segundos para empezar · Acceso inmediato"
   },
 
-  // Página de gracias post-pago: CTA primario que lleva al dashboard / onboarding del cliente.
+  // Página de gracias post-pago: CTA primario que lleva al onboarding (crear cuenta).
+  // El ThankYouPage añade automáticamente ?pi=<paymentIntentId> para verificar el pago.
   thankYou: {
-    primaryCTA: "Acceder a mi dashboard",
-    // URL real del onboarding o login del producto (substituir cuando tengas el endpoint listo).
-    primaryCTAUrl: "https://app.filadrive.io/onboarding",
-    primaryCTAHelper: "Configura tu cuenta y lanza tu primer run en menos de 2 minutos."
+    primaryCTA: "Crear mi cuenta",
+    primaryCTAUrl: "/crear-cuenta",
+    primaryCTAHelper: "Define tus credenciales en 30 segundos y te activamos el acceso."
+  },
+
+  // Página de crear-cuenta: CTA del estado de éxito (tras crear cuenta).
+  // Cuando tengas el dashboard real, cambia successCtaUrl a tu URL externa (ej. https://app.tudominio.io).
+  createAccount: {
+    successCta: "Ir a mi dashboard",
+    successCtaUrl: "/dashboard-inicio"
   },
 
   footer: {

@@ -14,15 +14,21 @@ import "./ThankYouPage.css";
 export function ThankYouPage() {
   const { brand, product, thankYou } = landingContent;
   const params = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null;
+  // Stripe Checkout (Payment Link) → session_id. Stripe Elements legacy → payment_intent.
   const sessionId = params?.get("session_id") || null;
   const paymentIntentId =
     params?.get("payment_intent") || params?.get("pi") || null;
+  // Token preferido para identificar la transacción frente a la app del cliente.
+  const sessionToken = sessionId || paymentIntentId;
+  const tokenParam = sessionId ? "session_id" : "pi";
+
   const dashboardHref = thankYou?.primaryCTAUrl
     ? `${thankYou.primaryCTAUrl}${
-        paymentIntentId
+        sessionToken
           ? (thankYou.primaryCTAUrl.includes("?") ? "&" : "?") +
-            "pi=" +
-            encodeURIComponent(paymentIntentId)
+            tokenParam +
+            "=" +
+            encodeURIComponent(sessionToken)
           : ""
       }`
     : null;
@@ -112,9 +118,9 @@ export function ThankYouPage() {
               </div>
             </div>
 
-            {sessionId && (
+            {sessionToken && (
               <p className="thank-you__session">
-                Referencia de pago: <code>{sessionId.slice(0, 18)}…</code>
+                Referencia de pago: <code>{sessionToken.slice(0, 18)}…</code>
               </p>
             )}
 
