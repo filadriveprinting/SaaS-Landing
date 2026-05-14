@@ -55,15 +55,12 @@ export function DashboardInicioPage() {
               <SIDEBAR_ACTIVE.icon size={16} strokeWidth={2.4} className="dash-init__nav-icon" />
               <span>{SIDEBAR_ACTIVE.label}</span>
             </div>
-            {SIDEBAR_LOCKED.map((it) => {
-              const Icon = it.icon;
-              return (
-                <div key={it.label} className="dash-init__nav-item dash-init__nav-item--locked">
-                  <Lock size={14} strokeWidth={2.2} className="dash-init__nav-icon" />
-                  <span>{it.label}</span>
-                </div>
-              );
-            })}
+            {SIDEBAR_LOCKED.map((it) => (
+              <div key={it.label} className="dash-init__nav-item dash-init__nav-item--locked">
+                <Lock size={14} strokeWidth={2.2} className="dash-init__nav-icon" />
+                <span>{it.label}</span>
+              </div>
+            ))}
           </aside>
 
           {/* Contenido principal */}
