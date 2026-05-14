@@ -374,13 +374,11 @@ export const landingContent = {
   },
 
   // Página de crear-cuenta: CTA del estado de éxito (tras crear cuenta).
-  // Apunta al dashboard real del repo saas-dashboard donde el usuario inicia sesión
+  // Apunta al dashboard real (saas-dashboard) donde el usuario inicia sesión
   // con las credenciales recién creadas (Supabase auth).
-  //   - Dev (corriendo `npm run dev` del saas-dashboard):  http://localhost:3000/login
-  //   - Prod (cuando lo despliegues en Vercel):            https://tu-dashboard.vercel.app/login
   createAccount: {
     successCta: "Ir a mi dashboard",
-    successCtaUrl: "http://localhost:3000/login"
+    successCtaUrl: "https://filadrive-dashboard.vercel.app/login"
   },
 
   footer: {
