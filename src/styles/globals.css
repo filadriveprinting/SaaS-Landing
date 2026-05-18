@@ -14,12 +14,14 @@ html {
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   scrollbar-color: rgba(255, 107, 53, 0.5) transparent;
+  overflow-x: clip;
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
   min-height: 100%;
   background: var(--color-bg);
   color: var(--color-text);
@@ -33,12 +35,13 @@ body {
 body {
   background: var(--gradient-hero);
   background-attachment: fixed;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 #root {
   position: relative;
   isolation: isolate;
+  width: 100%;
   min-height: 100vh;
 }
 

@@ -10,6 +10,7 @@
   position: relative;
   padding-top: var(--section-pad-y);
   padding-bottom: var(--section-pad-y);
+  overflow-x: clip;
 }
 
 .section--tight {

@@ -158,6 +158,25 @@
     max-width: 420px;
     margin-inline: auto;
   }
+  .hero__copy {
+    text-align: center;
+    align-items: center;
+    margin-inline: auto;
+  }
+  .hero__ctas {
+    justify-content: center;
+    width: 100%;
+  }
+  .hero__freebie {
+    margin-inline: auto;
+    width: 100%;
+  }
+  .hero__subtitle {
+    margin-inline: auto;
+  }
+  .hero__trust {
+    margin-inline: auto;
+  }
 }
 
 /* TRUST BAR */
