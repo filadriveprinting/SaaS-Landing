@@ -290,7 +290,7 @@ export const landingContent = {
       { value: 11, label: "Dimensiones de análisis" },
       { value: 13, label: "Fases de research por run" },
       { value: 7, suffix: " min", label: "Tiempo medio al veredicto" },
-      { value: 14, suffix: " días", label: "Garantía money-back" }
+      { value: 100, suffix: " %", label: "Datos privados y tuyos" }
     ]
   },
 
@@ -348,11 +348,6 @@ export const landingContent = {
       question: "¿Funciona si soy completamente principiante?",
       answer:
         "Está pensado para ti. El minicurso 'Cómo leer un veredicto' + las plantillas + la comunidad cubren la curva inicial."
-    },
-    {
-      question: "¿Hay garantía?",
-      answer:
-        "Trial 14 días money-back, sin preguntas. Si no descubres al menos 1 oportunidad real para tu nicho, te devolvemos tu dinero al contactar soporte."
     }
   ],
 
@@ -360,7 +355,7 @@ export const landingContent = {
     eyebrow: "Decisión simple",
     headline: "Activa tu acceso. Veredicto en 7 minutos.",
     description:
-      "Acceso inmediato. 14 días money-back. Datos 100% tuyos. La próxima decisión que tomes sobre un producto puede tener evidencia detrás.",
+      "Acceso inmediato. Datos 100% tuyos. La próxima decisión que tomes sobre un producto puede tener evidencia detrás.",
     button: "Quiero mi acceso ahora",
     microcopy: "Sin tarjeta · 90 segundos para empezar · Acceso inmediato"
   },
