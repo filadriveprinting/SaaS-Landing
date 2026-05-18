@@ -21,9 +21,13 @@ export function VideoModal({ open, src, onClose, poster }) {
     };
   }, [open, onClose]);
 
-  // Pausa el vídeo cuando se cierra.
+  // Pausa el vídeo cuando se cierra. Al abrir, fuerza volumen audible.
   useEffect(() => {
-    if (!open && videoRef.current) {
+    if (!videoRef.current) return;
+    if (open) {
+      videoRef.current.muted = false;
+      videoRef.current.volume = 1;
+    } else {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
     }
